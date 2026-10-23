@@ -1,0 +1,3 @@
+- insert:
+    - id: date-sundial
+      name: '@local/dsh-date-sundial'
