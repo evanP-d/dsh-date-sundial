@@ -37,13 +37,15 @@ A tiny ambient date-progress strip for the DeepSeek Harness Web UI.
 
 ## 安装
 
-当前是一个本地作用域的 bundle（`@local/dsh-date-sundial`），未发布到 npm。
+当前是一个本地作用域的 bundle（`@local/dsh-date-sundial`），未发布到 npm。npm 是 JavaScript 的公共包仓库；发布后 `install_bundle` 可以按包名直接安装，现在则需要先拿到源码。安装位置由 DSH 管理（当前 profile 的 `node_modules`），不需要手动拷贝到 DSH 安装目录。
 
 1. 克隆仓库：
 
    ```bash
    git clone git@github.com:evanP-d/dsh-date-sundial.git
    ```
+
+   不想用 git 的话，也可以在 GitHub 页面点「Code → Download ZIP」，解压后使用解压目录。
 
 2. 把克隆目录的绝对路径交给你的 DSH agent，让它安装：
 
@@ -53,6 +55,8 @@ A tiny ambient date-progress strip for the DeepSeek Harness Web UI.
 
    不要手动改 profile 的 `package.json` 或 `cordis.patch.yml`，`install_bundle` 会处理安装和启用。
 
+   > 本地安装会把插件链接到当前 profile 的 `node_modules`，源目录就是安装源。请把仓库放在一个稳定位置；安装后不要删除或移动它，否则插件会失效。移动后重新执行一次安装即可。
+
 3. 刷新 DSH 页面，输入框下方就会出现。
 
 卸载：在「设置 → 插件」里停用或移除「日晷」，或者让你的 agent 执行：
@@ -61,7 +65,7 @@ A tiny ambient date-progress strip for the DeepSeek Harness Web UI.
 plugin_manager remove_bundle target=@local/dsh-date-sundial
 ```
 
-更新：`git pull` 后重启 DSH。
+更新：在克隆目录 `git pull`，然后重启 DSH。如果目录被移动过，先重新执行一次安装。
 
 ## 兼容性
 
